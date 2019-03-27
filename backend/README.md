@@ -2,6 +2,7 @@
 
 - [Get started](#get-started)
 - [Run the application locally](#run-the-application-locally)
+- [Current Routes](#current-routes)
 
 
 ## Get started
@@ -19,3 +20,13 @@ $ export FLASK_DEBUG=1
 $ export FLASK_APP=app.py
 $ flask run
 ```
+
+## Current Routes
+
+Base route: /
+
+To get all stats: /stats/
+
+To get a specific stat: /stats/<stat>
+
+#TODO other routes
