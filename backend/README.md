@@ -27,6 +27,6 @@ Base route: /
 
 To get all stats: /stats/
 
-To get a specific stat: /stats/<stat>
+To get a specific stat: /stats/{stat}
 
 #TODO other routes
