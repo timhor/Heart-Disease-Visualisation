@@ -1,17 +1,27 @@
 import os
+import pandas as pd
+import numpy as np
 
 from flask import Flask
 from .stats import views as stats_views
 from .views import base
+from .config import DATA_FILE
 
-data = None
+dataframe = None
+
+# TODO
+def clean_dataframe():
+    global dataframe
+    print(dataframe)
+    pass
 
 def load_data():
-    # TODO
-    global data
-    if not data:
-        data = 1
+    global dataframe
+    if not dataframe:
         print("Loading data")
+        dataframe = pd.read_csv(DATA_FILE)
+        clean_dataframe()
+        
 
 def create_app(test_config=None):
     # create and configure the app
@@ -30,7 +40,7 @@ def create_app(test_config=None):
     # Blueprint for our /stats route
     app.register_blueprint(stats_views.bp)
 
-    app.before_request(load_data)
+    app.before_first_request(load_data)
     
     return app
 
