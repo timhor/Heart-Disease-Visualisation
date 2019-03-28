@@ -4,9 +4,14 @@ from flask import Flask
 from .stats import views as stats_views
 from .views import base
 
+data = None
+
 def load_data():
     # TODO
-    print("Loading data")
+    global data
+    if not data:
+        data = 1
+        print("Loading data")
 
 def create_app(test_config=None):
     # create and configure the app
