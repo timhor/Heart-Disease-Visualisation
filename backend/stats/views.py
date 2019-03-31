@@ -1,5 +1,4 @@
-from flask import Blueprint
-
+from flask import Blueprint, jsonify, g
 
 bp = Blueprint('stats', __name__, url_prefix='/stats')
 
@@ -17,4 +16,9 @@ def get_stat(stat):
     return "GET STAT " + stat
 
 # TODO
-# Route that accepts user input and does machine learning 
+# Route that accepts user input and does machine learning
+@bp.route('/prediction', methods=['GET'])
+def prediction():
+    model = g.model
+
+    return 'Some model magic'

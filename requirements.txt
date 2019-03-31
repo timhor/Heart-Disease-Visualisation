@@ -4,11 +4,13 @@ astor==0.7.1
 attrs==19.1.0
 backcall==0.1.0
 bleach==3.1.0
+Click==7.0
 cycler==0.10.0
 decorator==4.4.0
 defusedxml==0.5.0
 eli5==0.8.1
 entrypoints==0.3
+Flask==1.0.2
 gast==0.2.2
 graphviz==0.10.1
 grpcio==1.19.0
@@ -17,6 +19,7 @@ ipykernel==5.1.0
 ipython==7.4.0
 ipython-genutils==0.2.0
 ipywidgets==7.4.2
+itsdangerous==1.1.0
 jedi==0.13.3
 Jinja2==2.10
 jsonschema==3.0.1
