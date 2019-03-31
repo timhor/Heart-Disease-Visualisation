@@ -1,3 +1,4 @@
 #Put config here
 
-DATA_FILE='processed.cleveland.data'
+DATA_FILE = 'resources/processed.cleveland.data'
+TRAINED_MODEL = 'resources/rf_model.pkl'
