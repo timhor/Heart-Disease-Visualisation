@@ -83,7 +83,10 @@ def create_app(test_config=None):
     # Blueprint for our /stats route
     app.register_blueprint(stats_views.bp)
 
-    app.before_first_request(load_data)
+    # Loads the data for every request
+    # TODO can we figure out a better way to load only once?
+    # before_first_request didn't work well with flask.g
+    app.before_request(load_data)
 
     return app
 
