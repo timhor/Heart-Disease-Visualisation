@@ -22,6 +22,7 @@ def get_stat(stat):
 # Route that accepts user input and does machine learning
 @bp.route('/prediction', methods=['GET'])
 def prediction():
+    # Example: http://localhost:5000/stats/prediction?age=25&sex=1.0&cp=1&trestbps=3.0&chol=5&fbs=0&restecg=0&thalach=8&exang=1&oldpeak=0.1&slope=1.0&ca=12&thal=3.0&target=14
     df_dict = {}
     try:
         attributes = [
@@ -36,10 +37,8 @@ def prediction():
 
     df = pd.DataFrame.from_dict(df_dict)
     df = clean_dataframe(df, False)
-
     df = pd.concat([g.df, df], join='inner', ignore_index=True)
-
-    df = pd.get_dummies(df, drop_first=True)
+    df = pd.get_dummies(df)
 
     model = g.model
     prediction = model.predict(df.tail(1))
