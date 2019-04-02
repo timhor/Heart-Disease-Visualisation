@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 
 from flask import Flask, g
+from flask_cors import CORS
 from .stats import views as stats_views
 from .views import base
 from .config import DATA_FILE, TRAINED_MODEL
@@ -91,3 +92,4 @@ def create_app(test_config=None):
     return app
 
 application = create_app()
+CORS(application)
