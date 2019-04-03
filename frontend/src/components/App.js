@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
 import Plot from 'react-plotly.js';
 import backend from '../api/backend';
 import '../css/App.css';
@@ -21,12 +22,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <button onClick={this.get_statuses}>
-          GET ALL STATUSES (Check console)
-        </button>
-        <button onClick={() => this.get_stat('age')}>
-          GET AGE (Check console)
-        </button>
+        <Button variant="primary" onClick={this.get_statuses}>
+          GET ALL STATUSES (check console)
+        </Button>
+        <Button variant="secondary" onClick={() => this.get_stat('age')}>
+          GET AGE (check console)
+        </Button>
         <Plot
           data={[
             {
