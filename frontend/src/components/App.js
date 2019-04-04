@@ -7,8 +7,7 @@ import {
   TextField,
   InputLabel,
   Select,
-  MenuItem,
-  Divider
+  MenuItem
 } from '@material-ui/core';
 import '../css/App.css';
 
