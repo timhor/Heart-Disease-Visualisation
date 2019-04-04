@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Plot from 'react-plotly.js';
 import backend from '../api/backend';
+import Button from '@material-ui/core/Button';
 import '../css/App.css';
 
 
@@ -21,12 +22,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <button onClick={this.get_statuses}>
+        <Button variant="contained" color="primary" onClick={this.get_statuses}>
           GET ALL STATUSES (Check console)
-        </button>
-        <button onClick={() => this.get_stat('age')}>
+        </Button>
+        <Button variant="contained" color="secondary" onClick={() => this.get_stat('age')}>
           GET AGE (Check console)
-        </button>
+        </Button>
         <Plot
           data={[
             {
