@@ -17,8 +17,6 @@ def load_data():
     df = clean_dataframe(df)
     g.df = df
 
-    print(g.df.columns)
-
     with open(TRAINED_MODEL, 'rb') as file:
         g.model = pickle.load(file)
 
