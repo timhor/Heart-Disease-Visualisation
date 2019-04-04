@@ -1,6 +1,43 @@
 import pandas as pd
 import numpy as np
 
+CATEGORICAL_MAPPING = {
+    'sex': {
+        0: 'M',
+        1: 'F'
+    },
+    'cp': {
+        1: 'typical anigma',
+        2: 'atypical angina',
+        3: 'non-anginal pain',
+        4: 'asymptomatic'
+    },
+    'thal': {
+        3: 'normal',
+        6: 'fixed defect',
+        7: 'reversable defect'
+    },
+    'fbs': {
+        0: '< 120mg/ml',
+        1: '> 120mg/ml'
+    },
+    'exang': {
+        0: 'no',
+        1: 'yes'
+    },
+    'slope': {
+        1: 'up',
+        2: 'flat',
+        3: 'down'
+    },
+    'restecg': {
+        0: 'normal',
+        1: 'ST-T wave abnormality',
+        2: 'left ventricular hypertrophy'
+    }
+}
+
+
 def clean_dataframe(df, include_target=True):
     with pd.option_context('mode.chained_assignment', None):
         df = df.replace('?', np.nan)
@@ -14,6 +51,7 @@ def clean_dataframe(df, include_target=True):
         df['oldpeak'] = pd.to_numeric(df['oldpeak']).astype(float)
         df['thal'] = pd.to_numeric(df['thal']).astype(int)
 
+        # TODO: Clean this up to use the mapping above
         df['sex'][df['sex'] == 0] = 'F'
         df['sex'][df['sex'] == 1.0] = 'M'
         df['sex'].astype(object)

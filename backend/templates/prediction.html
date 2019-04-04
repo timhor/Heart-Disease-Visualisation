@@ -1,0 +1,16 @@
+
+<h1>Showcase of my HTML talent</h1>
+<form>
+    {% for a in attributes %}
+        {% if a in categories %}
+        <select name="{{ a }}">
+            {% for k in categories[a] %}
+                <option value="{{ k }}">{{ categories[a][k] }}</option>
+            {% endfor %}
+        </select>
+        {% else %}
+        <input type="number" name="{{ a }}" placeholder="{{ a }}">
+        {% endif %}
+    {% endfor %}
+    <button>r u ded?</button>
+</form>
