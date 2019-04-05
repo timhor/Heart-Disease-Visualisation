@@ -87,8 +87,6 @@ class App extends Component {
             Sample Plot
         </Link>
 
-        <hr />
-
         <div className="parameter-wrapper">
           <TextField
             type="number"
