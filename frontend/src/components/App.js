@@ -83,7 +83,7 @@ class App extends Component {
           GET AGE (check console)
         </Button>
 
-        <hr></hr>
+        <hr />
 
         <div className="parameter-wrapper">
           <TextField
@@ -100,119 +100,120 @@ class App extends Component {
               value={this.state.sex}
               onChange={this.handleChange('sex')}
             >
-              <MenuItem value={0}>M</MenuItem>
-              <MenuItem value={1}>F</MenuItem>
+              <MenuItem value={0}>Male</MenuItem>
+              <MenuItem value={1}>Female</MenuItem>
             </Select>
           </FormControl>
 
           <FormControl>
-            <InputLabel htmlFor="cp">Cp</InputLabel>
+            <InputLabel htmlFor="cp">Chest pain type</InputLabel>
             <Select
               name="cp"
               value={this.state.cp}
               onChange={this.handleChange('cp')}
             >
-              <MenuItem value={1}>typical anigma</MenuItem>
-              <MenuItem value={2}>atypical angina</MenuItem>
-              <MenuItem value={3}>non-anginal pain</MenuItem>
-              <MenuItem value={4}>asymptomatic</MenuItem>
+              <MenuItem value={1}>Typical anigma</MenuItem>
+              <MenuItem value={2}>Atypical angina</MenuItem>
+              <MenuItem value={3}>Non-anginal pain</MenuItem>
+              <MenuItem value={4}>Asymptomatic</MenuItem>
             </Select>
           </FormControl>
 
           <TextField
             type="number"
-            label="Trestbps"
+            label="Resting blood pressure"
             value={this.state.trestbps}
             onChange={this.handleChange('trestbps')}
           />
+
           <TextField
             type="number"
-            label="Chol"
+            label="Serum cholesterol in mg/dl"
             value={this.state.chol}
             onChange={this.handleChange('chol')}
           />
 
           <FormControl>
-            <InputLabel htmlFor="fbs">Fbs</InputLabel>
+            <InputLabel htmlFor="fbs">Fasting blood sugar</InputLabel>
             <Select
               name="fbs"
               value={this.state.fbs}
               onChange={this.handleChange('fbs')}
             >
-              <MenuItem value={0}>&lt; 120mg/ml</MenuItem>
-              <MenuItem value={1}>&gt; 120mg/ml</MenuItem>
+              <MenuItem value={0}>&le; 120mg/dl</MenuItem>
+              <MenuItem value={1}>&gt; 120mg/dl</MenuItem>
             </Select>
           </FormControl>
 
           <FormControl>
-            <InputLabel htmlFor="restecg">Restecg</InputLabel>
+            <InputLabel htmlFor="restecg">Resting ECG</InputLabel>
             <Select
               name="restecg"
               value={this.state.restecg}
               onChange={this.handleChange('restecg')}
             >
-              <MenuItem value={0}>normal</MenuItem>
+              <MenuItem value={0}>Normal</MenuItem>
               <MenuItem value={1}>ST-T wave abnormality</MenuItem>
-              <MenuItem value={2}>left ventricular hypertrophy</MenuItem>
+              <MenuItem value={2}>Left ventricular hypertrophy</MenuItem>
             </Select>
           </FormControl>
 
           <TextField
             type="number"
-            label="Thalach"
+            label="Maximum heart rate achieved"
             value={this.state.thalach}
             onChange={this.handleChange('thalach')}
           />
 
           <FormControl>
-            <InputLabel htmlFor="exang">Exang</InputLabel>
+            <InputLabel htmlFor="exang">Exercise-induced angina</InputLabel>
             <Select
               name="exang"
               value={this.state.exang}
               onChange={this.handleChange('exang')}
             >
-              <MenuItem value={0}>no</MenuItem>
-              <MenuItem value={1}>yes</MenuItem>
+              <MenuItem value={0}>No</MenuItem>
+              <MenuItem value={1}>Yes</MenuItem>
             </Select>
           </FormControl>
 
           <TextField
             type="number"
-            label="Oldpeak"
+            label="ST depression"
             value={this.state.oldpeak}
             onChange={this.handleChange('oldpeak')}
           />
 
           <FormControl>
-            <InputLabel htmlFor="slope">Slope</InputLabel>
+            <InputLabel htmlFor="slope">Slope of peak exercise ST segment</InputLabel>
             <Select
               name="slope"
               value={this.state.slope}
               onChange={this.handleChange('slope')}
             >
-              <MenuItem value={1}>up</MenuItem>
-              <MenuItem value={2}>flat</MenuItem>
-              <MenuItem value={3}>down</MenuItem>
+              <MenuItem value={1}>Up</MenuItem>
+              <MenuItem value={2}>Flat</MenuItem>
+              <MenuItem value={3}>Down</MenuItem>
             </Select>
           </FormControl>
 
           <TextField
             type="number"
-            label="Ca"
+            label="Major vessels coloured by flourosopy"
             value={this.state.ca}
             onChange={this.handleChange('ca')}
           />
 
           <FormControl>
-            <InputLabel htmlFor="thal">Thal</InputLabel>
+            <InputLabel htmlFor="thal">Thalassemia</InputLabel>
             <Select
               name="thal"
               value={this.state.thal}
               onChange={this.handleChange('thal')}
             >
-              <MenuItem value={3}>normal</MenuItem>
-              <MenuItem value={6}>fixed defect</MenuItem>
-              <MenuItem value={7}>reversable defect</MenuItem>
+              <MenuItem value={3}>Normal</MenuItem>
+              <MenuItem value={6}>Fixed defect</MenuItem>
+              <MenuItem value={7}>Reversable defect</MenuItem>
             </Select>
           </FormControl>
         </div>
@@ -234,7 +235,7 @@ class App extends Component {
           Reset
         </Button>
 
-        <hr></hr>
+        <hr />
 
         <Plot
           data={[
