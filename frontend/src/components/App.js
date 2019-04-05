@@ -100,8 +100,8 @@ class App extends Component {
               value={this.state.sex}
               onChange={this.handleChange('sex')}
             >
-              <MenuItem value={0}>Male</MenuItem>
-              <MenuItem value={1}>Female</MenuItem>
+              <MenuItem value={0}>Female</MenuItem>
+              <MenuItem value={1}>Male</MenuItem>
             </Select>
           </FormControl>
 
