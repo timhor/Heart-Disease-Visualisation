@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import Plot from 'react-plotly.js';
 import backend from '../api/backend';
 import {
@@ -82,6 +83,9 @@ class App extends Component {
         >
           GET AGE (check console)
         </Button>
+        <Link to="/plot">
+            Sample Plot
+        </Link>
 
         <hr />
 
@@ -234,35 +238,55 @@ class App extends Component {
         >
           Reset
         </Button>
-
-        <hr />
-
-        <Plot
-          data={[
-            {
-              name: 'line chart',
-              type: 'scatter',
-              x: [1, 2, 3],
-              y: [2, 6, 3],
-              mode: 'lines+points',
-              marker: { color: 'red' }
-            },
-            {
-              name: 'bar chart',
-              type: 'bar',
-              x: [1, 2, 3],
-              y: [2, 5, 3]
-            }
-          ]}
-          layout={{
-            title: 'Sample Plot',
-            width: 800,
-            height: 500
-          }}
-        />
       </div>
     );
   }
 }
 
-export default App;
+class PlotDemo extends Component {
+  render() {
+    return (
+      <Plot
+        data={[
+          {
+            name: 'line chart',
+            type: 'scatter',
+            x: [1, 2, 3],
+            y: [2, 6, 3],
+            mode: 'lines+points',
+            marker: { color: 'red' }
+          },
+          {
+            name: 'bar chart',
+            type: 'bar',
+            x: [1, 2, 3],
+            y: [2, 5, 3]
+          }
+        ]}
+        layout={{
+          title: 'Sample Plot',
+          width: 800,
+          height: 500
+        }}
+      />
+    );
+  }
+}
+
+class AppRouter extends Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <Route exact path="/" render={() => (
+            <Redirect to="/prediction" />
+          )} />
+          <Route path="/prediction" component={App} />
+          <Route path="/plot" component={PlotDemo} />
+        </div>
+      </Router>
+    );
+  }
+}
+
+export default AppRouter;
