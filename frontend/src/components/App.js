@@ -43,6 +43,14 @@ class App extends Component {
     console.log(response);
   }
 
+  async getPrediction() {
+    const queryString = Object.entries(this.state)
+      .map(entry => entry.join('='))
+      .join('&');
+    const response = await backend.get('/stats/prediction?' + queryString);
+    console.log(response);
+  }
+
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });
   };
@@ -213,7 +221,7 @@ class App extends Component {
           variant="contained"
           color="primary"
           className="Button"
-          onClick={this.printState}
+          onClick={() => this.getPrediction()}
         >
           Submit
         </Button>
