@@ -11,26 +11,26 @@ import {
 } from '@material-ui/core';
 import '../css/App.css';
 
-
+const initialState = {
+  age: '',
+  sex: '',
+  cp: '',
+  trestbps: '',
+  chol: '',
+  fbs: '',
+  restecg: '',
+  thalach: '',
+  exang: '',
+  oldpeak: '',
+  slope: '',
+  ca: '',
+  thal: ''
+}
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      age: '',
-      sex: '',
-      cp: '',
-      trestbps: '',
-      chol: '',
-      fbs: '',
-      restecg: '',
-      thalach: '',
-      exang: '',
-      oldpeak: '',
-      slope: '',
-      ca: '',
-      thal: ''
-    };
+    this.state = initialState;
   }
 
   async get_statuses() {
@@ -51,12 +51,16 @@ class App extends Component {
     console.log(this.state);
   }
 
+  resetState = () => {
+    this.setState(initialState);
+  }
+
   render() {
     return (
       <div className="App">
         <Button
           variant="contained"
-          color="primary"
+          color="default"
           className="Button"
           onClick={this.get_statuses}
         >
@@ -64,7 +68,7 @@ class App extends Component {
         </Button>
         <Button
           variant="contained"
-          color="secondary"
+          color="default"
           className="Button"
           onClick={() => this.get_stat('age')}
         >
@@ -207,10 +211,19 @@ class App extends Component {
 
         <Button
           variant="contained"
-          color="default"
+          color="primary"
+          className="Button"
           onClick={this.printState}
         >
           Submit
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          className="Button"
+          onClick={this.resetState}
+        >
+          Reset
         </Button>
 
         <hr></hr>
