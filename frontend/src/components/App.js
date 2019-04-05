@@ -33,12 +33,12 @@ class App extends Component {
     this.state = initialState;
   }
 
-  async get_statuses() {
+  async getStatuses() {
     const response = await backend.get('/stats/');
     console.log(response);
   }
 
-  async get_stat(stat) {
+  async getStat(stat) {
     const response = await backend.get('/stats/' + stat);
     console.log(response);
   }
@@ -62,7 +62,7 @@ class App extends Component {
           variant="contained"
           color="default"
           className="Button"
-          onClick={this.get_statuses}
+          onClick={this.getStatuses}
         >
           GET ALL STATUSES (check console)
         </Button>
@@ -70,7 +70,7 @@ class App extends Component {
           variant="contained"
           color="default"
           className="Button"
-          onClick={() => this.get_stat('age')}
+          onClick={() => this.getStat('age')}
         >
           GET AGE (check console)
         </Button>
