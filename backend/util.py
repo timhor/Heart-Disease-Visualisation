@@ -18,8 +18,8 @@ CATEGORICAL_MAPPING = {
         7: 'reversable defect'
     },
     'fbs': {
-        0: '< 120mg/ml',
-        1: '> 120mg/ml'
+        0: '< 120mg/dl',
+        1: '> 120mg/dl'
     },
     'exang': {
         0: 'no',
@@ -67,8 +67,8 @@ def clean_dataframe(df, include_target=True):
         df['thal'][df['thal'] == 7] = 'reversable defect'
         df['thal'].astype(object)
 
-        df['fbs'][df['fbs'] == 0] = '< 120mg/ml'
-        df['fbs'][df['fbs'] == 1] = '> 120mg/ml'
+        df['fbs'][df['fbs'] == 0] = '<= 120mg/dl'
+        df['fbs'][df['fbs'] == 1] = '> 120mg/dl'
 
         df['exang'][df['exang'] == 0] = 'no'
         df['exang'][df['exang'] == 1] = 'yes'
