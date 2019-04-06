@@ -13,7 +13,7 @@ def get_stats():
     if df is None:
         return "Dataframe has not been loaded", 404
 
-    return jsonify(df.to_json(orient='records'))
+    return df.to_json(orient='records')
 
 @bp.route('/<stat>', methods=['GET'])
 def get_stat(stat):
@@ -25,7 +25,7 @@ def get_stat(stat):
     if stat not in df:
         return f"Invalid stat {stat} specified", 400
 
-    return jsonify(df[stat].to_json(orient='records'))
+    return df[stat].to_json(orient='records')
 
 # Route that accepts user input and does machine learning
 @bp.route('/prediction', methods=['GET'])
