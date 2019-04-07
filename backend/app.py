@@ -5,20 +5,20 @@ import numpy as np
 
 from flask import Flask, g
 from flask_cors import CORS
+from .util import cache, clean_dataframe
 from .stats import views as stats_views
 from .views import base
 from .config import DATA_FILE, TRAINED_MODEL
-from .util import clean_dataframe
 
 
 def load_data():
     print("Loading data")
     df = pd.read_csv(DATA_FILE)
     df = clean_dataframe(df)
-    g.df = df
+    cache.set('df', df)
 
     with open(TRAINED_MODEL, 'rb') as file:
-        g.model = pickle.load(file)
+        cache.set('model', pickle.load(file))
 
 
 def create_app(test_config=None):
@@ -41,7 +41,7 @@ def create_app(test_config=None):
     # Loads the data for every request
     # TODO can we figure out a better way to load only once?
     # before_first_request didn't work well with flask.g
-    app.before_request(load_data)
+    app.before_first_request(load_data)
 
     return app
 

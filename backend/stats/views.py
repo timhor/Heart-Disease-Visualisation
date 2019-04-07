@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, g, request, render_template
 import pandas as pd
 
-from ..util import clean_dataframe, CATEGORICAL_MAPPING
+from ..util import cache, clean_dataframe, CATEGORICAL_MAPPING
 
 bp = Blueprint('stats', __name__, url_prefix='/stats')
 
@@ -9,26 +9,35 @@ bp = Blueprint('stats', __name__, url_prefix='/stats')
 @bp.route('/', methods=['GET'])
 def get_stats():
     '''Get all the stats'''
-    if 'df' not in g:
+    df = cache.get('df')
+    if df is None:
         return "Dataframe has not been loaded", 404
 
-    return jsonify(g.df.to_json(orient='records'))
+    return jsonify(df.to_json(orient='records'))
 
 @bp.route('/<stat>', methods=['GET'])
 def get_stat(stat):
     '''Get a specific stat'''
-    if 'df' not in g:
+    df = cache.get('df')
+    if df is None:
         return "Dataframe has not been loaded", 404
 
-    if stat not in g.df:
+    if stat not in df:
         return f"Invalid stat {stat} specified", 400
 
-    return jsonify(g.df[stat].to_json(orient='records'))
+    return jsonify(df[stat].to_json(orient='records'))
 
-# TODO
 # Route that accepts user input and does machine learning
 @bp.route('/prediction', methods=['GET'])
 def prediction():
+    model_df = cache.get('df')
+    if model_df is None:
+        return "Dataframe has not been loaded", 404
+
+    model = cache.get('model')
+    if model is None:
+        return "Prediction model has not been loaded", 404
+
     attributes = [
         'age', 'sex', 'cp', 'trestbps',
         'chol', 'fbs', 'restecg', 'thalach',
@@ -51,10 +60,9 @@ def prediction():
 
     df = pd.DataFrame.from_dict(df_dict)
     df = clean_dataframe(df, False)
-    df = pd.concat([g.df, df], join='inner', ignore_index=True)
+    df = pd.concat([model_df, df], join='inner', ignore_index=True)
     df = pd.get_dummies(df)
 
-    model = g.model
     prediction = model.predict(df.tail(1))
 
     return jsonify({'target': int(prediction[0])})

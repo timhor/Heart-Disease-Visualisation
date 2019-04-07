@@ -4,3 +4,6 @@
 **/.vscode
 **/__pycache__
 *.pyc
+
+# I apologise as a Macbook pleb, this sometimes appears
+**/.DS_Store
