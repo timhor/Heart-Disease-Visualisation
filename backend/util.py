@@ -21,7 +21,7 @@ CATEGORICAL_MAPPING = {
         7: 'reversable defect'
     },
     'fbs': {
-        0: '< 120mg/dl',
+        0: '<= 120mg/dl',
         1: '> 120mg/dl'
     },
     'exang': {
