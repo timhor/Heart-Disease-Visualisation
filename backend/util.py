@@ -10,7 +10,7 @@ CATEGORICAL_MAPPING = {
         1: 'M'
     },
     'cp': {
-        1: 'typical anigma',
+        1: 'typical angina',
         2: 'atypical angina',
         3: 'non-anginal pain',
         4: 'asymptomatic'

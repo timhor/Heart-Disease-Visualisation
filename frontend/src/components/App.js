@@ -114,7 +114,7 @@ class App extends Component {
               value={this.state.cp}
               onChange={this.handleChange('cp')}
             >
-              <MenuItem value={1}>Typical anigma</MenuItem>
+              <MenuItem value={1}>Typical angina</MenuItem>
               <MenuItem value={2}>Atypical angina</MenuItem>
               <MenuItem value={3}>Non-anginal pain</MenuItem>
               <MenuItem value={4}>Asymptomatic</MenuItem>
