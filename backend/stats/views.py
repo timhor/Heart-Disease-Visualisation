@@ -13,6 +13,7 @@ def get_stats():
     if df is None:
         return "Dataframe has not been loaded", 404
 
+
     return df.to_json(orient='records')
 
 @bp.route('/<stat>', methods=['GET'])
@@ -21,6 +22,9 @@ def get_stat(stat):
     df = cache.get('df')
     if df is None:
         return "Dataframe has not been loaded", 404
+
+    if stat == 'corr':
+        return df.corr().to_json(orient='split')
 
     if stat not in df:
         return f"Invalid stat {stat} specified", 400
