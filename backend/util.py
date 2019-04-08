@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from werkzeug.contrib.cache import SimpleCache
 
-cache = SimpleCache()
+cache = SimpleCache(default_timeout=0)
 
 CATEGORICAL_MAPPING = {
     'sex': {

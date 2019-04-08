@@ -6,6 +6,7 @@
 
 
 ## Get started
+Install the requirements in a virtual environment using the `requirements.txt` in the root folder of the project (`..`).
 
 ```bash
 $ virtualenv --python=`which python3` venv
@@ -21,6 +22,8 @@ $ export FLASK_APP=app.py
 $ flask run
 ```
 
+Or more simply, `bash run.sh`.
+
 ## Current Routes
 
 Base route: /
@@ -29,4 +32,4 @@ To get all stats: /stats/
 
 To get a specific stat: /stats/{stat}
 
-#TODO other routes
+To do a prediction: /stats/prediction (providing ALL the arguments as GET parameters)
