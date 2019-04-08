@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import Plot from 'react-plotly.js';
 import backend from '../api/backend';
+import Header from './Header';
 import {
   Button,
   FormControl,
   TextField,
   InputLabel,
   Select,
-  MenuItem
+  MenuItem,
+  AppBar,
+  Toolbar,
+  Typography,
+  Grid
 } from '@material-ui/core';
 import '../css/App.css';
 
@@ -81,6 +86,7 @@ class Plots extends Component {
   
       return (
         <div>
+          <Header />
           <div className="plots" >
             <Plot
               data={[
