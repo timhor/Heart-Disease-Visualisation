@@ -4,9 +4,6 @@ import Plots from './Plots';
 import Prediction from './Prediction';
 import '../css/App.css';
 
-
-
-
 class AppRouter extends Component {
   render() {
     return (

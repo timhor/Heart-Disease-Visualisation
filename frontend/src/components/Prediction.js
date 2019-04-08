@@ -9,10 +9,6 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  AppBar,
-  Typography,
-  Grid,
-  Toolbar
 } from '@material-ui/core';
 import '../css/App.css';
 
