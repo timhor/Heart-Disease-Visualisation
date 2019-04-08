@@ -43,6 +43,11 @@ class Plots extends Component {
 
     async getStats() {
       const response = await backend.get('/stats/');
+      if (response.status !== 200) {
+        console.log('REQUEST FAILED')
+        return;
+      }
+      
       var stats = this.state.stats;
       for (var property in stats) stats[property] = [];
       for (var i = 0; i < response.data.length; i++) {
@@ -56,6 +61,10 @@ class Plots extends Component {
   
     async getStat(stat) {
       const response = await backend.get('/stats/' + stat);
+      if (response.status !== 200) {
+        console.log('REQUEST FAILED')
+        return;
+      }
 
       if (stat === 'corr') {
           this.setState({corr: response.data.data, corrCol: response.data.columns});
