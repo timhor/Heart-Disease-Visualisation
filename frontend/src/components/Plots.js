@@ -2,14 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import Plot from 'react-plotly.js';
 import backend from '../api/backend';
-import {
-  Button,
-  FormControl,
-  TextField,
-  InputLabel,
-  Select,
-  MenuItem
-} from '@material-ui/core';
+import Header from './Header';
 import '../css/App.css';
 
 const initialState = {
@@ -81,6 +74,7 @@ class Plots extends Component {
   
       return (
         <div>
+          <Header />
           <div className="plots" >
             <Plot
               data={[

@@ -4,9 +4,6 @@ import Plots from './Plots';
 import Prediction from './Prediction';
 import '../css/App.css';
 
-
-
-
 class AppRouter extends Component {
   render() {
     return (
@@ -16,7 +13,7 @@ class AppRouter extends Component {
             <Redirect to="/prediction" />
           )} />
           <Route path="/prediction" component={Prediction} />
-          <Route path="/plot" component={Plots} />
+          <Route path="/plots" component={Plots} />
         </div>
       </Router>
     );
