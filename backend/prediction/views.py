@@ -7,7 +7,7 @@ bp = Blueprint('prediction', __name__, url_prefix='/prediction')
 
 
 @bp.route('/', methods=['GET'])
-def get_stats():
+def get_prediction():
     ''' Does the prediction '''
     model_df = cache.get('df')
     if model_df is None:
@@ -24,7 +24,7 @@ def get_stats():
         ]
     if len(request.args) == 0:
         return render_template('prediction.html', attributes=attributes, categories=CATEGORICAL_MAPPING)
-    # Example: http://localhost:5000/stats/prediction?age=25&sex=1.0&cp=1&trestbps=3.0&chol=5&fbs=0&restecg=0&thalach=8&exang=1&oldpeak=0.1&slope=1.0&ca=12&thal=3.0&target=14
+    # Example: http://localhost:5000/prediction?age=25&sex=1.0&cp=1&trestbps=3.0&chol=5&fbs=0&restecg=0&thalach=8&exang=1&oldpeak=0.1&slope=1.0&ca=12&thal=3.0&target=14
     df_dict = {}
     try:
         for i in attributes:
