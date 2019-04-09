@@ -32,4 +32,20 @@ To get all stats: /stats/
 
 To get a specific stat: /stats/{stat}
 
-To do a prediction: /stats/prediction (providing ALL the arguments as GET parameters)
+To do a prediction: /prediction
+The following are **ALL** required GET parameters:
+- age
+- sex
+- cp
+- trestbps
+- chol
+- fbs
+- restecg
+- thalacb
+- exang
+- oldpeak
+- slope
+- ca
+- thal
+
+The expected values are akin to what is expected in the [UCI Heart Disease Archive](https://archive.ics.uci.edu/ml/datasets/heart+Disease)

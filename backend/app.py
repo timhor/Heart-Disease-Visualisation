@@ -3,10 +3,11 @@ import pickle
 import pandas as pd
 import numpy as np
 
-from flask import Flask, g
+from flask import Flask
 from flask_cors import CORS
 from .util import cache, clean_dataframe
 from .stats import views as stats_views
+from .prediction import views as prediction_views
 from .views import base
 from .config import DATA_FILE, TRAINED_MODEL
 
@@ -37,6 +38,7 @@ def create_app(test_config=None):
 
     # Blueprint for our /stats route
     app.register_blueprint(stats_views.bp)
+    app.register_blueprint(prediction_views.bp)
 
     # Loads the data before the first request
     app.before_first_request(load_data)
