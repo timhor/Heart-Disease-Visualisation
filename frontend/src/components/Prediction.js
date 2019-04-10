@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import backend from '../api/backend';
 import Header from './Header';
 import {
@@ -10,7 +11,8 @@ import {
   MenuItem,
   Card,
   CardContent,
-  Typography
+  Typography,
+  withStyles
 } from '@material-ui/core';
 import '../css/Prediction.css';
 
@@ -28,6 +30,15 @@ const initialState = {
   slope: '',
   ca: '',
   thal: ''
+};
+
+const styles = {
+  button: {
+    margin: '0 10px !important'
+  },
+  formField: {
+    margin: '10px'
+  }
 };
 
 class Prediction extends Component {
@@ -95,6 +106,7 @@ class Prediction extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
       <div className="App">
         <Header />
@@ -105,9 +117,10 @@ class Prediction extends Component {
               label="Age"
               value={this.state.age}
               onChange={this.handleChange('age')}
+              classes={{ root: classes.formField }}
             />
 
-            <FormControl>
+            <FormControl classes={{ root: classes.formField }}>
               <InputLabel htmlFor="sex">Sex</InputLabel>
               <Select
                 name="sex"
@@ -119,7 +132,7 @@ class Prediction extends Component {
               </Select>
             </FormControl>
 
-            <FormControl>
+            <FormControl classes={{ root: classes.formField }}>
               <InputLabel htmlFor="cp">Chest pain type</InputLabel>
               <Select
                 name="cp"
@@ -138,6 +151,7 @@ class Prediction extends Component {
               label="Resting blood pressure"
               value={this.state.trestbps}
               onChange={this.handleChange('trestbps')}
+              classes={{ root: classes.formField }}
             />
 
             <TextField
@@ -145,9 +159,10 @@ class Prediction extends Component {
               label="Serum cholesterol in mg/dl"
               value={this.state.chol}
               onChange={this.handleChange('chol')}
+              classes={{ root: classes.formField }}
             />
 
-            <FormControl>
+            <FormControl classes={{ root: classes.formField }}>
               <InputLabel htmlFor="fbs">Fasting blood sugar</InputLabel>
               <Select
                 name="fbs"
@@ -159,7 +174,7 @@ class Prediction extends Component {
               </Select>
             </FormControl>
 
-            <FormControl>
+            <FormControl classes={{ root: classes.formField }}>
               <InputLabel htmlFor="restecg">Resting ECG</InputLabel>
               <Select
                 name="restecg"
@@ -168,7 +183,9 @@ class Prediction extends Component {
               >
                 <MenuItem value={'0'}>Normal</MenuItem>
                 <MenuItem value={'1'}>ST-T wave abnormality</MenuItem>
-                <MenuItem value={'2'}>Left ventricular hypertrophy</MenuItem>
+                <MenuItem value={'2'}>
+                  Left ventricular hypertrophy
+                </MenuItem>
               </Select>
             </FormControl>
 
@@ -177,9 +194,10 @@ class Prediction extends Component {
               label="Maximum heart rate achieved"
               value={this.state.thalach}
               onChange={this.handleChange('thalach')}
+              classes={{ root: classes.formField }}
             />
 
-            <FormControl>
+            <FormControl classes={{ root: classes.formField }}>
               <InputLabel htmlFor="exang">
                 Exercise-induced angina
               </InputLabel>
@@ -198,9 +216,10 @@ class Prediction extends Component {
               label="ST depression"
               value={this.state.oldpeak}
               onChange={this.handleChange('oldpeak')}
+              classes={{ root: classes.formField }}
             />
 
-            <FormControl>
+            <FormControl classes={{ root: classes.formField }}>
               <InputLabel htmlFor="slope">
                 Slope of peak exercise ST segment
               </InputLabel>
@@ -220,9 +239,10 @@ class Prediction extends Component {
               label="Major vessels coloured by flourosopy"
               value={this.state.ca}
               onChange={this.handleChange('ca')}
+              classes={{ root: classes.formField }}
             />
 
-            <FormControl>
+            <FormControl classes={{ root: classes.formField }}>
               <InputLabel htmlFor="thal">Thalassemia</InputLabel>
               <Select
                 name="thal"
@@ -240,24 +260,24 @@ class Prediction extends Component {
             <Button
               variant="contained"
               color="default"
-              className="Button"
               onClick={this.prefillSample1}
+              classes={{ root: classes.button }}
             >
               Pre-fill Sample 1
             </Button>
             <Button
               variant="contained"
               color="default"
-              className="Button"
               onClick={this.prefillSample2}
+              classes={{ root: classes.button }}
             >
               Pre-fill Sample 2
             </Button>
             <Button
               variant="contained"
               color="primary"
-              className="Button"
               onClick={() => this.getPrediction()}
+              classes={{ root: classes.button }}
               // need to call the function here to handle 'this' binding
             >
               Submit
@@ -265,8 +285,8 @@ class Prediction extends Component {
             <Button
               variant="contained"
               color="secondary"
-              className="Button"
               onClick={this.resetState}
+              classes={{ root: classes.button }}
             >
               Reset
             </Button>
@@ -290,4 +310,8 @@ class Prediction extends Component {
   }
 }
 
-export default Prediction;
+Prediction.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(Prediction);
