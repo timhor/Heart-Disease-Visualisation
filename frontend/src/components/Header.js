@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button, AppBar, Toolbar, Typography, Grid } from '@material-ui/core';
 import '../css/App.css';
 
@@ -19,7 +19,7 @@ class Header extends Component {
             spacing={8}
           >
             <Grid item>
-              <Button color="primary" variant="outlined">
+              <Button color="primary">
                 <Link to="/plots" style={{ textDecoration: 'none' }}>
                   Plots
                 </Link>
