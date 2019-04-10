@@ -1,11 +1,12 @@
 .App {
   text-align: center;
-  
+
 }
 
 .prediction-form {
   padding: 30px;
 }
+
 .MuiButtonBase-root-27.Button {
   margin: 0 10px;
 }
@@ -19,4 +20,8 @@
 
 .parameter-wrapper .MuiFormControl-root-30 {
   margin: 10px;
+}
+
+.form-button-wrapper {
+  margin-bottom: 50px;
 }
