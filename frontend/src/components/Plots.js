@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Plot from 'react-plotly.js';
 import backend from '../api/backend';
 import Header from './Header';
-import '../css/App.css';
+import '../css/Plots.css';
 
 const initialState = {
   stats: {
@@ -25,6 +26,11 @@ const initialState = {
   corrCol: []
 };
 
+// request cancellation adapted from https://github.com/axios/axios#cancellation
+const CancelToken = axios.CancelToken;
+let cancelGetStats;
+let cancelGetStat;
+
 class Plots extends Component {
   constructor(props) {
     super(props);
@@ -32,9 +38,22 @@ class Plots extends Component {
   }
 
   async getStats() {
-    const response = await backend.get('/stats/');
-    if (response.status !== 200) {
-      console.log('REQUEST FAILED');
+    const response = await backend
+      .get('/stats/', {
+        cancelToken: new CancelToken(c => {
+          cancelGetStats = c;
+        })
+      })
+      .catch(error => {
+        if (axios.isCancel(error)) {
+          console.log('Request cancelled: getStats');
+        } else {
+          console.log('Request errored: getStats');
+        }
+      });
+
+    if (response === undefined || response.status !== 200) {
+      console.log('Request failed: getStats');
       return;
     }
 
@@ -51,9 +70,22 @@ class Plots extends Component {
   }
 
   async getStat(stat) {
-    const response = await backend.get('/stats/' + stat);
-    if (response.status !== 200) {
-      console.log('REQUEST FAILED');
+    const response = await backend
+      .get('/stats/' + stat, {
+        cancelToken: new CancelToken(c => {
+          cancelGetStat = c;
+        })
+      })
+      .catch(error => {
+        if (axios.isCancel(error)) {
+          console.log('Request cancelled: getStat');
+        } else {
+          console.log('Request errored: getStat');
+        }
+      });
+
+    if (response === undefined || response.status !== 200) {
+      console.log('Request failed: getStat');
       return;
     }
 
@@ -68,6 +100,11 @@ class Plots extends Component {
   componentDidMount() {
     this.getStats();
     this.getStat('corr');
+  }
+
+  componentWillUnmount() {
+    cancelGetStats();
+    cancelGetStat();
   }
 
   render() {
