@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button, AppBar, Toolbar, Typography, Grid, withStyles } from '@material-ui/core';
-import '../css/App.css';
 
 const styles = {
   toolbar: {

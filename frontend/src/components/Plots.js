@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Plot from 'react-plotly.js';
 import backend from '../api/backend';
 import Header from './Header';
-import '../css/App.css';
 
 const initialState = {
   stats: {

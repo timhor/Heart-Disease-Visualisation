@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Plots from './Plots';
 import Prediction from './Prediction';
-import '../css/App.css';
 
 class AppRouter extends Component {
   render() {
