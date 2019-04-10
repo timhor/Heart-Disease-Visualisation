@@ -8,7 +8,7 @@ import {
   TextField,
   InputLabel,
   Select,
-  MenuItem,
+  MenuItem
 } from '@material-ui/core';
 import '../css/App.css';
 
@@ -26,14 +26,13 @@ const initialState = {
   slope: '',
   ca: '',
   thal: ''
-}
+};
 
 class Prediction extends Component {
   constructor(props) {
     super(props);
     this.state = initialState;
   }
-
 
   async getPrediction() {
     const queryString = Object.entries(this.state)
@@ -49,19 +48,17 @@ class Prediction extends Component {
 
   printState = () => {
     console.log(this.state);
-  }
+  };
 
   resetState = () => {
     this.setState(initialState);
-  }
+  };
 
   render() {
     return (
       <div className="App">
-
         <Header />
         <div className="prediction-form">
-
           <div className="parameter-wrapper">
             <TextField
               type="number"
