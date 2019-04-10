@@ -38,10 +38,12 @@ class Plots extends Component {
       return;
     }
 
-    var stats = this.state.stats;
-    for (var property in stats) stats[property] = [];
-    for (var i = 0; i < response.data.length; i++) {
-      for (var property in response.data[i]) {
+    const stats = this.state.stats;
+    for (let property in stats) {
+      stats[property] = [];
+    }
+    for (let i = 0; i < response.data.length; i++) {
+      for (let property in response.data[i]) {
         stats[property].push(response.data[i][property]);
       }
     }
