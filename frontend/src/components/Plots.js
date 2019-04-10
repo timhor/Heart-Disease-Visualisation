@@ -26,6 +26,7 @@ const initialState = {
   corrCol: []
 };
 
+// request cancellation adapted from https://github.com/axios/axios#cancellation
 const CancelToken = axios.CancelToken;
 let cancelGetStats;
 let cancelGetStat;
