@@ -257,39 +257,43 @@ class Prediction extends Component {
           </div>
 
           <div className="form-button-wrapper">
-            <Button
-              variant="contained"
-              color="default"
-              onClick={this.prefillSample1}
-              classes={{ root: classes.button }}
-            >
-              Pre-fill Sample 1
-            </Button>
-            <Button
-              variant="contained"
-              color="default"
-              onClick={this.prefillSample2}
-              classes={{ root: classes.button }}
-            >
-              Pre-fill Sample 2
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => this.getPrediction()}
-              classes={{ root: classes.button }}
-              // need to call the function here to handle 'this' binding
-            >
-              Submit
-            </Button>
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={this.resetState}
-              classes={{ root: classes.button }}
-            >
-              Reset
-            </Button>
+            <div>
+              <Button
+                variant="contained"
+                color="default"
+                onClick={this.prefillSample1}
+                classes={{ root: classes.button }}
+              >
+                Pre-fill Sample 1
+              </Button>
+              <Button
+                variant="contained"
+                color="default"
+                onClick={this.prefillSample2}
+                classes={{ root: classes.button }}
+              >
+                Pre-fill Sample 2
+              </Button>
+            </div>
+            <div>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => this.getPrediction()}
+                classes={{ root: classes.button }}
+                // need to call the function here to handle 'this' binding
+              >
+                Submit
+              </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={this.resetState}
+                classes={{ root: classes.button }}
+              >
+                Reset
+              </Button>
+            </div>
           </div>
 
           {this.state.prediction !== undefined && (
