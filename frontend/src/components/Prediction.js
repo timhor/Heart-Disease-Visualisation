@@ -39,7 +39,7 @@ class Prediction extends Component {
     const queryString = Object.entries(this.state)
       .map(entry => entry.join('='))
       .join('&');
-    const response = await backend.get('/stats/prediction?' + queryString);
+    const response = await backend.get('/prediction?' + queryString);
     console.log(response);
   }
 
@@ -58,7 +58,7 @@ class Prediction extends Component {
   render() {
     return (
       <div className="App">
-        
+
         <Header />
         <div className="prediction-form">
 
