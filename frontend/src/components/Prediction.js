@@ -8,7 +8,10 @@ import {
   TextField,
   InputLabel,
   Select,
-  MenuItem
+  MenuItem,
+  Card,
+  CardContent,
+  Typography
 } from '@material-ui/core';
 import '../css/App.css';
 
@@ -51,7 +54,7 @@ class Prediction extends Component {
   };
 
   resetState = () => {
-    this.setState(initialState);
+    this.setState({ ...initialState, prediction: undefined });
   };
 
   // no heart disease
@@ -234,38 +237,54 @@ class Prediction extends Component {
             </FormControl>
           </div>
 
-          <Button
-            variant="contained"
-            color="default"
-            className="Button"
-            onClick={this.prefillSample1}
-          >
-            Pre-fill Sample 1
-          </Button>
-          <Button
-            variant="contained"
-            color="default"
-            className="Button"
-            onClick={this.prefillSample2}
-          >
-            Pre-fill Sample 2
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            className="Button"
-            onClick={() => this.getPrediction()}
-          >
-            Submit
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className="Button"
-            onClick={this.resetState}
-          >
-            Reset
-          </Button>
+          <div className="form-button-wrapper">
+            <Button
+              variant="contained"
+              color="default"
+              className="Button"
+              onClick={this.prefillSample1}
+            >
+              Pre-fill Sample 1
+            </Button>
+            <Button
+              variant="contained"
+              color="default"
+              className="Button"
+              onClick={this.prefillSample2}
+            >
+              Pre-fill Sample 2
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              className="Button"
+              onClick={() => this.getPrediction()}
+              // need to call the function here to handle 'this' binding
+            >
+              Submit
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              className="Button"
+              onClick={this.resetState}
+            >
+              Reset
+            </Button>
+          </div>
+
+          {this.state.prediction !== undefined && (
+            <Card>
+              <CardContent>
+                <Typography variant="h5">
+                  Prediction:{' '}
+                  {this.state.prediction === 0
+                    ? 'No Heart Disease'
+                    : 'Heart Disease'}
+                </Typography>
+              </CardContent>
+            </Card>
+          )}
         </div>
       </div>
     );
