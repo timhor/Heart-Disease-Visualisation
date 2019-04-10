@@ -12,7 +12,7 @@ import {
   CardContent,
   Typography
 } from '@material-ui/core';
-import '../css/App.css';
+import '../css/Prediction.css';
 
 const initialState = {
   age: '',
