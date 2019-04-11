@@ -283,6 +283,7 @@ class Prediction extends Component {
               <Button
                 variant="contained"
                 color="primary"
+                disabled={Object.values(this.state).some(value => value === '')}
                 onClick={() => this.getPrediction()}
                 classes={{ root: classes.button }}
                 // need to call the function here to handle 'this' binding
@@ -292,6 +293,7 @@ class Prediction extends Component {
               <Button
                 variant="contained"
                 color="secondary"
+                disabled={Object.values(this.state).every(value => value === '' || value === undefined)}
                 onClick={this.resetState}
                 classes={{ root: classes.button }}
               >
