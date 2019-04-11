@@ -38,6 +38,10 @@ const styles = {
   },
   formField: {
     margin: '10px'
+  },
+  result: {
+    margin: '6px',
+    textAlign: 'center'
   }
 };
 
@@ -299,11 +303,15 @@ class Prediction extends Component {
           {this.state.prediction !== undefined && (
             <Card>
               <CardContent>
-                <Typography variant="h5">
-                  Prediction:{' '}
-                  {this.state.prediction === 0
-                    ? 'No Heart Disease'
-                    : 'Heart Disease'}
+                <Typography classes={{ root: classes.result }} variant="h5">
+                  Prediction:&nbsp;
+                  <span className={this.state.prediction === 0
+                    ? 'negativeResult'
+                    : 'positiveResult'}>
+                    {this.state.prediction === 0
+                      ? 'No Heart Disease'
+                      : 'Heart Disease'}
+                  </span>
                 </Typography>
               </CardContent>
             </Card>

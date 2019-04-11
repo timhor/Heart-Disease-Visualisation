@@ -21,7 +21,7 @@
 }
 
 .form-button-wrapper {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: space-between;
 }
@@ -30,4 +30,14 @@
   .form-button-wrapper {
     flex-direction: column;
   }
+}
+
+.positiveResult {
+  font-weight: 500;
+  color: red;
+}
+
+.negativeResult {
+  font-weight: 500;
+  color: green
 }
