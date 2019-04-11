@@ -34,7 +34,7 @@ const initialState = {
 
 const styles = {
   button: {
-    margin: '0 10px !important'
+    margin: '10px 10px !important'
   },
   formField: {
     margin: '10px'

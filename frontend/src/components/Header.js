@@ -5,8 +5,8 @@ import { Button, AppBar, Toolbar, Typography, Grid, withStyles } from '@material
 
 const styles = {
   toolbar: {
-    'padding-left': '40px',
-    'padding-right': '40px'
+    paddingLeft: '40px',
+    paddingRight: '40px'
   },
 };
 
