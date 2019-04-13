@@ -92,7 +92,9 @@ class Factors extends Component {
               <TableHead>
                 <TableRow>
                   <TableCell>Feature</TableCell>
-                  <TableCell style={{paddingLeft: '38px'}}>Weight</TableCell>
+                  <TableCell align="right" style={{ paddingRight: '112px' }}>
+                    Weight
+                  </TableCell>
                   {/* placeholders for padding */}
                   <TableCell />
                   <TableCell />
