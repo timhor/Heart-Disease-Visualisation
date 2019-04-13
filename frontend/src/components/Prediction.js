@@ -112,7 +112,7 @@ class Prediction extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className="App">
+      <>
         <Header />
         <div className="prediction-form">
           <div className="parameter-wrapper">
@@ -319,7 +319,7 @@ class Prediction extends Component {
             </Card>
           )}
         </div>
-      </div>
+      </>
     );
   }
 }
