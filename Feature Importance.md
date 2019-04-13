@@ -37,6 +37,6 @@ SHAP allows us to provide insights on our blackbox model on an individual predic
 
 We provide a summary bar plot to show the results below.
 
-![Test](SHAP_summary_plot.png)
+![SHAP Summary Plot](frontend/src/assets/SHAP_summary_plot.png)
 
 (Optional) We can see that the top 6 features from both methods coincide with one another.
