@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Plots from './Plots';
+import Factors from './Factors';
 import Prediction from './Prediction';
 
 class AppRouter extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <>
           <Route exact path="/" render={() => (
-            <Redirect to="/prediction" />
+            <Redirect to="/plots" />
           )} />
-          <Route path="/prediction" component={Prediction} />
           <Route path="/plots" component={Plots} />
-        </div>
+          <Route path="/factors" component={Factors} />
+          <Route path="/prediction" component={Prediction} />
+        </>
       </Router>
     );
   }

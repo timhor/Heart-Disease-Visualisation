@@ -109,7 +109,7 @@ class Plots extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <Header />
         <div className="plots">
           <Plot
@@ -656,7 +656,7 @@ class Plots extends Component {
             }}
           />
         </div>
-      </div>
+      </>
     );
   }
 }

@@ -1,0 +1,9 @@
+.card-content {
+  padding: 16px 16px 0;;
+}
+
+.shap-plot {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}

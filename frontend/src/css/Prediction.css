@@ -1,7 +1,3 @@
-.prediction-form {
-  padding: 30px;
-}
-
 .parameter-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

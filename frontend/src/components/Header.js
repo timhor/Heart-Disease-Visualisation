@@ -22,7 +22,12 @@ class Header extends Component {
     return (
       <AppBar position="static" color="default">
         <Toolbar classes={{ root: classes.toolbar }}>
-          <Typography className="test" classes={{ root: classes.title }} variant="h6" color="inherit">
+          <Typography
+            className="test"
+            classes={{ root: classes.title }}
+            variant="h6"
+            color="inherit"
+          >
             Heart Disease | ANTHEM
           </Typography>
           <Grid
@@ -33,14 +38,21 @@ class Header extends Component {
             spacing={8}
           >
             <Grid item>
-              <Button color="primary">
+              <Button color="default">
                 <Link to="/plots" style={{ textDecoration: 'none' }}>
                   Plots
                 </Link>
               </Button>
             </Grid>
             <Grid item>
-              <Button color="secondary">
+              <Button color="default">
+                <Link to="/factors" style={{ textDecoration: 'none' }}>
+                  Factors
+                </Link>
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button color="default">
                 <Link to="/prediction" style={{ textDecoration: 'none' }}>
                   Prediction
                 </Link>
