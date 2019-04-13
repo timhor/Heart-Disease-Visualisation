@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Plots from './Plots';
+import Factors from './Factors';
 import Prediction from './Prediction';
 
 class AppRouter extends Component {
@@ -12,6 +13,7 @@ class AppRouter extends Component {
             <Redirect to="/plots" />
           )} />
           <Route path="/plots" component={Plots} />
+          <Route path="/factors" component={Factors} />
           <Route path="/prediction" component={Prediction} />
         </>
       </Router>
