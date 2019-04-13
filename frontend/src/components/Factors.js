@@ -18,6 +18,10 @@ import shapPlot from '../assets/SHAP_summary_plot.png';
 const styles = {
   card: {
     margin: '30px 0'
+  },
+  weight: {
+    width: '50%',
+    paddingRight: '35% !important'
   }
 };
 
@@ -66,8 +70,8 @@ class Factors extends Component {
             This page shows potential important attributes related to heart
             disease. There are many ways to determine how important each
             feature is in our Random Forest Classifier model; two are
-            described below. Note that the top six features from both methods
-            coincide with one another.
+            described below. Note that the top six features from both
+            methods coincide with one another.
           </Typography>
           <Paper classes={{ root: classes.card }}>
             <div className="card-content">
@@ -88,7 +92,11 @@ class Factors extends Component {
               <TableHead>
                 <TableRow>
                   <TableCell>Feature</TableCell>
-                  <TableCell>Weight</TableCell>
+                  <TableCell style={{paddingLeft: '38px'}}>Weight</TableCell>
+                  {/* placeholders for padding */}
+                  <TableCell />
+                  <TableCell />
+                  <TableCell />
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -97,9 +105,13 @@ class Factors extends Component {
                     <TableCell component="th" scope="row">
                       <code>{row.feature}</code>
                     </TableCell>
-                    <TableCell component="th" scope="row">
+                    <TableCell component="th" scope="row" align="right">
                       {row.weight}
                     </TableCell>
+                    {/* placeholders for padding */}
+                    <TableCell component="th" scope="row" />
+                    <TableCell component="th" scope="row" />
+                    <TableCell component="th" scope="row" />
                   </TableRow>
                 ))}
               </TableBody>
