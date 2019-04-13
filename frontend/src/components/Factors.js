@@ -135,7 +135,9 @@ class Factors extends Component {
                 provided a baseline value. We provide a summary bar plot to
                 show the results below.
               </Typography>
-              <img className="shap-plot" src={shapPlot} alt="SHAP Plot" />
+              <div className="shap-plot">
+                <img src={shapPlot} alt="SHAP Plot" />
+              </div>
             </div>
           </Paper>
         </div>
