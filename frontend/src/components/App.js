@@ -9,10 +9,10 @@ class AppRouter extends Component {
       <Router>
         <>
           <Route exact path="/" render={() => (
-            <Redirect to="/prediction" />
+            <Redirect to="/plots" />
           )} />
-          <Route path="/prediction" component={Prediction} />
           <Route path="/plots" component={Plots} />
+          <Route path="/prediction" component={Prediction} />
         </>
       </Router>
     );
