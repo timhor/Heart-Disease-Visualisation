@@ -14,6 +14,7 @@ import {
   Typography,
   withStyles
 } from '@material-ui/core';
+import '../css/App.css';
 import '../css/Prediction.css';
 
 const initialState = {
@@ -114,7 +115,7 @@ class Prediction extends Component {
     return (
       <>
         <Header />
-        <div className="prediction-form">
+        <div className="container">
           <div className="parameter-wrapper">
             <TextField
               type="number"
