@@ -34,10 +34,14 @@ const initialState = {
 
 const styles = {
   button: {
-    margin: '0 10px !important'
+    margin: '10px 10px !important'
   },
   formField: {
     margin: '10px'
+  },
+  result: {
+    margin: '6px',
+    textAlign: 'center'
   }
 };
 
@@ -279,6 +283,7 @@ class Prediction extends Component {
               <Button
                 variant="contained"
                 color="primary"
+                disabled={Object.values(this.state).some(value => value === '')}
                 onClick={() => this.getPrediction()}
                 classes={{ root: classes.button }}
                 // need to call the function here to handle 'this' binding
@@ -288,6 +293,7 @@ class Prediction extends Component {
               <Button
                 variant="contained"
                 color="secondary"
+                disabled={Object.values(this.state).every(value => value === '' || value === undefined)}
                 onClick={this.resetState}
                 classes={{ root: classes.button }}
               >
@@ -299,11 +305,15 @@ class Prediction extends Component {
           {this.state.prediction !== undefined && (
             <Card>
               <CardContent>
-                <Typography variant="h5">
-                  Prediction:{' '}
-                  {this.state.prediction === 0
-                    ? 'No Heart Disease'
-                    : 'Heart Disease'}
+                <Typography classes={{ root: classes.result }} variant="h5">
+                  Prediction:&nbsp;
+                  <span className={this.state.prediction === 0
+                    ? 'negativeResult'
+                    : 'positiveResult'}>
+                    {this.state.prediction === 0
+                      ? 'No Heart Disease'
+                      : 'Heart Disease'}
+                  </span>
                 </Typography>
               </CardContent>
             </Card>

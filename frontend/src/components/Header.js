@@ -3,12 +3,18 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button, AppBar, Toolbar, Typography, Grid, withStyles } from '@material-ui/core';
 
-const styles = {
+const styles = theme => ({
   toolbar: {
-    'padding-left': '40px',
-    'padding-right': '40px'
+    paddingLeft: '40px',
+    paddingRight: '40px'
   },
-};
+  title: {
+    width: '100%',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '16px'
+    }
+  },
+});
 
 class Header extends Component {
   render() {
@@ -16,8 +22,8 @@ class Header extends Component {
     return (
       <AppBar position="static" color="default">
         <Toolbar classes={{ root: classes.toolbar }}>
-          <Typography variant="h6" color="inherit">
-            ANTHEM
+          <Typography className="test" classes={{ root: classes.title }} variant="h6" color="inherit">
+            Heart Disease | ANTHEM
           </Typography>
           <Grid
             container
