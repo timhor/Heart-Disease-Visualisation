@@ -99,6 +99,8 @@ class Factors extends Component {
                   <TableCell />
                   <TableCell />
                   <TableCell />
+                  <TableCell />
+                  <TableCell />
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -111,6 +113,8 @@ class Factors extends Component {
                       {row.weight}
                     </TableCell>
                     {/* placeholders for padding */}
+                    <TableCell component="th" scope="row" />
+                    <TableCell component="th" scope="row" />
                     <TableCell component="th" scope="row" />
                     <TableCell component="th" scope="row" />
                     <TableCell component="th" scope="row" />
