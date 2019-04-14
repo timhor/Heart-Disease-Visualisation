@@ -1,11 +1,7 @@
-# COMP9321 ASS 3 Backend
+# Backend
 
-- [Get started](#get-started)
-- [Run the application locally](#run-the-application-locally)
-- [Current Routes](#current-routes)
+## Getting started
 
-
-## Get started
 Install the requirements in a virtual environment using the `requirements.txt` in the root folder of the project (`..`).
 
 ```bash
@@ -14,7 +10,7 @@ $ source ./venv/bin/activate
 $ pip install -r requirements.txt
 ```
 
-## Run the application locally
+## Running the application locally
 
 ```bash
 $ export FLASK_DEBUG=1
@@ -22,18 +18,19 @@ $ export FLASK_APP=app.py
 $ flask run
 ```
 
-Or more simply, `bash run.sh`.
+Or more simply, within the virtual environment, type `bash run.sh`.
 
-## Current Routes
+## Current routes
 
-Base route: /
+- Base route: `/`
+- To get all stats: `/stats`
+- To get a specific stat: `/stats/{tat}`
+- To do a prediction: `/prediction`
 
-To get all stats: /stats/
+## Making a prediction
 
-To get a specific stat: /stats/{stat}
+The following are **all** required `GET` parameters:
 
-To do a prediction: /prediction
-The following are **ALL** required GET parameters:
 - age
 - sex
 - cp
@@ -48,4 +45,4 @@ The following are **ALL** required GET parameters:
 - ca
 - thal
 
-The expected values are akin to what is expected in the [UCI Heart Disease Archive](https://archive.ics.uci.edu/ml/datasets/heart+Disease)
+The expected values are akin to what is expected in the [UCI Heart Disease Archive](https://archive.ics.uci.edu/ml/datasets/heart+Disease).
