@@ -43,4 +43,4 @@ $ python model_trainer.py
 
 A file `rf_model.pkl` will be generated.
 
-This model can be reloaded by using Pickle to load the binary and predictions can be used.
+This model can be reloaded by using Pickle to load the binary and predictions can be made.
