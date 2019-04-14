@@ -18,7 +18,7 @@ $ export FLASK_APP=app.py
 $ flask run
 ```
 
-Or more simply, within the virtual environment, type `source run.sh`.
+Or more simply, within the virtual environment, type `bash run.sh`.
 
 ## Current routes
 
