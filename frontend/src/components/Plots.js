@@ -185,9 +185,9 @@ class Plots extends Component {
                   ).length
                 ],
                 marker: {
-                  color: 'green',
+                  color: 'rgba(0, 170, 0, 0.7)',
                   line: {
-                    color: 'green',
+                    color: 'rgba(0, 170, 0, 1)',
                     width: 1
                   }
                 }
@@ -200,6 +200,49 @@ class Plots extends Component {
               xaxis: { title: 'CP' },
               yaxis: { title: 'Count' },
               barmode: 'group'
+            }}
+          />
+          <Plot
+            data={[
+              {
+                name: 'heatmap',
+                type: 'heatmap',
+                x: this.state.corrCol,
+                y: this.state.corrCol,
+                z: this.state.corr
+              }
+            ]}
+            layout={{
+              title: 'Heatmap',
+              width: 475,
+              height: 500,
+              xaxis: {},
+              yaxis: {}
+            }}
+          />
+          <Plot
+            data={[
+              {
+                name: 'scatter chart',
+                mode: 'markers',
+                type: 'scatter',
+                x: this.state.stats.age,
+                y: this.state.stats.chol,
+                marker: {
+                  color: 'rgba(255, 100, 102, 0.7)',
+                  line: {
+                    color: 'rgba(255, 100, 102, 1)',
+                    width: 1
+                  }
+                }
+              }
+            ]}
+            layout={{
+              title: 'Chol vs Age',
+              width: 475,
+              height: 500,
+              xaxis: { title: 'Age' },
+              yaxis: { title: 'Chol' }
             }}
           />
           <Plot
@@ -219,9 +262,9 @@ class Plots extends Component {
                   ).length
                 ],
                 marker: {
-                  color: 'rgba(100, 200, 102, 0.7)',
+                  color: 'rgba(142,124,195, 0.7)',
                   line: {
-                    color: 'rgba(100, 200, 102, 1)',
+                    color: 'rgba(142,124,195, 1)',
                     width: 1
                   }
                 }
@@ -241,9 +284,9 @@ class Plots extends Component {
                   ).length
                 ],
                 marker: {
-                  color: 'green',
+                  color: 'rgba(170,50,255, 0.7)',
                   line: {
-                    color: 'green',
+                    color: 'rgba(170,100,255, 1)',
                     width: 1
                   }
                 }
@@ -256,6 +299,31 @@ class Plots extends Component {
               xaxis: { title: 'Exang' },
               yaxis: { title: 'Count' },
               barmode: 'group'
+            }}
+          />
+          <Plot
+            data={[
+              {
+                name: 'scatter chart',
+                mode: 'markers',
+                type: 'scatter',
+                x: this.state.stats.age,
+                y: this.state.stats.ca,
+                marker: {
+                  color: 'rgba(255, 100, 102, 0.7)',
+                  line: {
+                    color: 'rgba(255, 100, 102, 1)',
+                    width: 1
+                  }
+                }
+              }
+            ]}
+            layout={{
+              title: 'CA vs Age',
+              width: 475,
+              height: 500,
+              xaxis: { title: 'Age' },
+              yaxis: { title: 'CA' }
             }}
           />
           <Plot
@@ -277,9 +345,9 @@ class Plots extends Component {
                   ).length
                 ],
                 marker: {
-                  color: 'rgba(100, 200, 102, 0.7)',
+                  color: 'rgba(158,202,225, 0.7)',
                   line: {
-                    color: 'rgba(100, 200, 102, 1)',
+                    color: 'rgba(158,202,225, 1)',
                     width: 1
                   }
                 }
@@ -301,9 +369,9 @@ class Plots extends Component {
                   ).length
                 ],
                 marker: {
-                  color: 'green',
+                  color: 'rgba(100,150,255, 0.7)',
                   line: {
-                    color: 'green',
+                    color: 'rgba(100,150,255, 1)',
                     width: 1
                   }
                 }
@@ -316,6 +384,31 @@ class Plots extends Component {
               xaxis: { title: 'FBS' },
               yaxis: { title: 'Count' },
               barmode: 'group'
+            }}
+          />
+          <Plot
+            data={[
+              {
+                name: 'scatter chart',
+                mode: 'markers',
+                type: 'scatter',
+                x: this.state.stats.age,
+                y: this.state.stats.oldpeak,
+                marker: {
+                  color: 'rgba(255, 100, 102, 0.7)',
+                  line: {
+                    color: 'rgba(255, 100, 102, 1)',
+                    width: 1
+                  }
+                }
+              }
+            ]}
+            layout={{
+              title: 'Oldpeak vs Age',
+              width: 475,
+              height: 500,
+              xaxis: { title: 'Age' },
+              yaxis: { title: 'Oldpeak' }
             }}
           />
           <Plot
@@ -383,213 +476,6 @@ class Plots extends Component {
           <Plot
             data={[
               {
-                name: 'Males vs Slope',
-                type: 'bar',
-                x: ['down', 'up', 'flat'],
-                y: [
-                  this.state.stats.sex.filter(
-                    (val, index) =>
-                      val === 'M' && this.state.stats.slope[index] === 'down'
-                  ).length,
-                  this.state.stats.sex.filter(
-                    (val, index) =>
-                      val === 'M' && this.state.stats.slope[index] === 'up'
-                  ).length,
-                  this.state.stats.sex.filter(
-                    (val, index) =>
-                      val === 'M' && this.state.stats.slope[index] === 'flat'
-                  ).length
-                ],
-                marker: {
-                  color: 'rgba(100, 200, 102, 0.7)',
-                  line: {
-                    color: 'rgba(100, 200, 102, 1)',
-                    width: 1
-                  }
-                }
-              },
-              {
-                name: 'Females vs Slope',
-                type: 'bar',
-                x: ['down', 'up', 'flat'],
-                y: [
-                  this.state.stats.sex.filter(
-                    (val, index) =>
-                      val === 'F' && this.state.stats.slope[index] === 'down'
-                  ).length,
-                  this.state.stats.sex.filter(
-                    (val, index) =>
-                      val === 'F' && this.state.stats.slope[index] === 'up'
-                  ).length,
-                  this.state.stats.sex.filter(
-                    (val, index) =>
-                      val === 'F' && this.state.stats.slope[index] === 'flat'
-                  ).length
-                ],
-                marker: {
-                  color: 'green',
-                  line: {
-                    color: 'green',
-                    width: 1
-                  }
-                }
-              }
-            ]}
-            layout={{
-              title: 'Sex vs Slope',
-              width: 475,
-              height: 500,
-              xaxis: { title: 'Slope' },
-              yaxis: { title: 'Count' },
-              barmode: 'group'
-            }}
-          />
-          <Plot
-            data={[
-              {
-                name: 'Males vs Thal',
-                type: 'bar',
-                x: ['fixed defect', 'normal', 'reversable defect'],
-                y: [
-                  this.state.stats.sex.filter(
-                    (val, index) =>
-                      val === 'M' &&
-                      this.state.stats.thal[index] === 'fixed defect'
-                  ).length,
-                  this.state.stats.sex.filter(
-                    (val, index) =>
-                      val === 'M' && this.state.stats.thal[index] === 'normal'
-                  ).length,
-                  this.state.stats.sex.filter(
-                    (val, index) =>
-                      val === 'M' &&
-                      this.state.stats.thal[index] === 'reversable defect'
-                  ).length
-                ],
-                marker: {
-                  color: 'rgba(100, 200, 102, 0.7)',
-                  line: {
-                    color: 'rgba(100, 200, 102, 1)',
-                    width: 1
-                  }
-                }
-              },
-              {
-                name: 'Females vs Thal',
-                type: 'bar',
-                x: ['fixed defect', 'normal', 'reversable defect'],
-                y: [
-                  this.state.stats.sex.filter(
-                    (val, index) =>
-                      val === 'F' &&
-                      this.state.stats.thal[index] === 'fixed defect'
-                  ).length,
-                  this.state.stats.sex.filter(
-                    (val, index) =>
-                      val === 'F' && this.state.stats.thal[index] === 'normal'
-                  ).length,
-                  this.state.stats.sex.filter(
-                    (val, index) =>
-                      val === 'F' &&
-                      this.state.stats.thal[index] === 'reversable defect'
-                  ).length
-                ],
-                marker: {
-                  color: 'green',
-                  line: {
-                    color: 'green',
-                    width: 1
-                  }
-                }
-              }
-            ]}
-            layout={{
-              title: 'Sex vs Thal',
-              width: 475,
-              height: 500,
-              xaxis: { title: 'Thal' },
-              yaxis: { title: 'Count' },
-              barmode: 'group'
-            }}
-          />
-          <Plot
-            data={[
-              {
-                name: 'scatter chart',
-                mode: 'markers',
-                type: 'scatter',
-                x: this.state.stats.age,
-                y: this.state.stats.chol,
-                marker: {
-                  color: 'rgba(255, 100, 102, 0.7)',
-                  line: {
-                    color: 'rgba(255, 100, 102, 1)',
-                    width: 1
-                  }
-                }
-              }
-            ]}
-            layout={{
-              title: 'Chol vs Age',
-              width: 475,
-              height: 500,
-              xaxis: { title: 'Age' },
-              yaxis: { title: 'Chol' }
-            }}
-          />
-          <Plot
-            data={[
-              {
-                name: 'scatter chart',
-                mode: 'markers',
-                type: 'scatter',
-                x: this.state.stats.age,
-                y: this.state.stats.ca,
-                marker: {
-                  color: 'rgba(255, 100, 102, 0.7)',
-                  line: {
-                    color: 'rgba(255, 100, 102, 1)',
-                    width: 1
-                  }
-                }
-              }
-            ]}
-            layout={{
-              title: 'CA vs Age',
-              width: 475,
-              height: 500,
-              xaxis: { title: 'Age' },
-              yaxis: { title: 'CA' }
-            }}
-          />
-          <Plot
-            data={[
-              {
-                name: 'scatter chart',
-                mode: 'markers',
-                type: 'scatter',
-                x: this.state.stats.age,
-                y: this.state.stats.oldpeak,
-                marker: {
-                  color: 'rgba(255, 100, 102, 0.7)',
-                  line: {
-                    color: 'rgba(255, 100, 102, 1)',
-                    width: 1
-                  }
-                }
-              }
-            ]}
-            layout={{
-              title: 'Oldpeak vs Age',
-              width: 475,
-              height: 500,
-              xaxis: { title: 'Age' },
-              yaxis: { title: 'Oldpeak' }
-            }}
-          />
-          <Plot
-            data={[
-              {
                 name: 'scatter chart',
                 mode: 'markers',
                 type: 'scatter',
@@ -610,6 +496,72 @@ class Plots extends Component {
               height: 500,
               xaxis: { title: 'Age' },
               yaxis: { title: 'Thalach' }
+            }}
+          />
+          <Plot
+            data={[
+              {
+                name: 'Males vs Slope',
+                type: 'bar',
+                x: ['down', 'up', 'flat'],
+                y: [
+                  this.state.stats.sex.filter(
+                    (val, index) =>
+                      val === 'M' && this.state.stats.slope[index] === 'down'
+                  ).length,
+                  this.state.stats.sex.filter(
+                    (val, index) =>
+                      val === 'M' && this.state.stats.slope[index] === 'up'
+                  ).length,
+                  this.state.stats.sex.filter(
+                    (val, index) =>
+                      val === 'M' && this.state.stats.slope[index] === 'flat'
+                  ).length
+                ],
+                marker: {
+                  color: 'rgba(158,202,225, 0.7)',
+                  line: {
+                    color: 'rgba(158,202,225, 1)',
+                    width: 1
+                  }
+                }
+                
+              },
+              {
+                name: 'Females vs Slope',
+                type: 'bar',
+                x: ['down', 'up', 'flat'],
+                y: [
+                  this.state.stats.sex.filter(
+                    (val, index) =>
+                      val === 'F' && this.state.stats.slope[index] === 'down'
+                  ).length,
+                  this.state.stats.sex.filter(
+                    (val, index) =>
+                      val === 'F' && this.state.stats.slope[index] === 'up'
+                  ).length,
+                  this.state.stats.sex.filter(
+                    (val, index) =>
+                      val === 'F' && this.state.stats.slope[index] === 'flat'
+                  ).length
+                ],
+                marker: {
+                  color: 'rgba(100,150,255, 0.7)',
+                  line: {
+                    color: 'rgba(100,150,255, 1)',
+                    width: 1
+                  }
+                }
+                
+              }
+            ]}
+            layout={{
+              title: 'Sex vs Slope',
+              width: 475,
+              height: 500,
+              xaxis: { title: 'Slope' },
+              yaxis: { title: 'Count' },
+              barmode: 'group'
             }}
           />
           <Plot
@@ -640,19 +592,69 @@ class Plots extends Component {
           <Plot
             data={[
               {
-                name: 'heatmap',
-                type: 'heatmap',
-                x: this.state.corrCol,
-                y: this.state.corrCol,
-                z: this.state.corr
+                name: 'Males vs Thal',
+                type: 'bar',
+                x: ['fixed defect', 'normal', 'reversable defect'],
+                y: [
+                  this.state.stats.sex.filter(
+                    (val, index) =>
+                      val === 'M' &&
+                      this.state.stats.thal[index] === 'fixed defect'
+                  ).length,
+                  this.state.stats.sex.filter(
+                    (val, index) =>
+                      val === 'M' && this.state.stats.thal[index] === 'normal'
+                  ).length,
+                  this.state.stats.sex.filter(
+                    (val, index) =>
+                      val === 'M' &&
+                      this.state.stats.thal[index] === 'reversable defect'
+                  ).length
+                ],
+                marker: {
+                  color: 'rgba(142,124,195, 0.7)',
+                  line: {
+                    color: 'rgba(142,124,195, 1)',
+                    width: 1
+                  }
+                }
+              },
+              {
+                name: 'Females vs Thal',
+                type: 'bar',
+                x: ['fixed defect', 'normal', 'reversable defect'],
+                y: [
+                  this.state.stats.sex.filter(
+                    (val, index) =>
+                      val === 'F' &&
+                      this.state.stats.thal[index] === 'fixed defect'
+                  ).length,
+                  this.state.stats.sex.filter(
+                    (val, index) =>
+                      val === 'F' && this.state.stats.thal[index] === 'normal'
+                  ).length,
+                  this.state.stats.sex.filter(
+                    (val, index) =>
+                      val === 'F' &&
+                      this.state.stats.thal[index] === 'reversable defect'
+                  ).length
+                ],
+                marker: {
+                  color: 'rgba(170,50,255, 0.7)',
+                  line: {
+                    color: 'rgba(170,100,255, 1)',
+                    width: 1
+                  }
+                }
               }
             ]}
             layout={{
-              title: 'Heatmap',
+              title: 'Sex vs Thal',
               width: 475,
               height: 500,
-              xaxis: {},
-              yaxis: {}
+              xaxis: { title: 'Thal' },
+              yaxis: { title: 'Count' },
+              barmode: 'group'
             }}
           />
         </div>
